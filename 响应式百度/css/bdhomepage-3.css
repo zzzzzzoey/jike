@@ -1,0 +1,228 @@
+
+/*初始化*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; }   
+body { background:#fff; color:#555; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; }   
+td,th,caption { font-size:14px; }   
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }   
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}   
+a { color:#555; text-decoration:none; }   
+a:hover { text-decoration:underline; }   
+img { border:none; }   
+ol,ul,li { list-style:none; }   
+input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }   
+table { border-collapse:collapse; }   
+html {overflow-y: scroll;}   
+/* css common */  
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}   
+.clearfix { *zoom:1; }  
+
+
+.wrapper{
+	position: absolute;
+	float;left;
+	width:100%;
+	height: 100%;
+	min-width: 810px;
+	min-height: 600px;
+    _height:auto !important;
+    _height: 600px;
+}
+/*一下为top部分的css*/
+.header{
+	position: absolute;
+	margin:19px 0px 5px 0;
+	padding:0 15px 0 0;
+	height: 40px;
+	right: 0px;	
+    text-align: right;
+    _padding-right: 95px;
+}
+.header a{
+	font-size: 13px;
+	color: black;
+	margin-left: 24px;
+	text-decoration: underline;
+	line-height: 24px;
+    _margin-left:24px;
+}
+.headerlink{
+	font-weight: bold;
+}
+#headerlink-m {
+    position: relative;
+    overflow: hidden;
+    float: right;
+    right: 0px;
+    width: 60px;
+    height: 23px;
+    background: #38f;
+    color: white;
+    text-align: center;
+    margin-left: 25px;
+    text-decoration: none;
+    font-weight: bold; 
+    _right: -85px;
+    _top: -23px;  
+    _line-height: 24px;
+}
+.header>a:hover{
+    color:#00c;
+}
+/*以下为cotent部分的代码，百度logo，文本域，button等*/
+.section{
+    position: absolute;
+	top: 38.2%;
+	width: 100%;
+	margin-bottom: 40px;
+    text-align: center;
+    _top:38.2%;
+}
+.section img{
+	position: relative;
+	float: left;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 25px;
+	left: 50%;
+	margin-left: -140px;
+	top: -191px;	
+}
+.section form{
+	position: absolute;
+	float: left;
+    width: 640px;
+    top: -34px;
+    left: 50%;
+    margin-left: -320px;
+    _text-align:left;      	
+}
+.textarea{
+	position: relative;
+    width: 530px;
+    height: 34px;
+    display: inline-block;
+    float: left;
+    border: 1px solid #b6b6b6;
+    background-color: #fff;
+    overflow: hidden;
+}
+.textarea:hover{
+	border-color: #7b7b7b;
+}
+
+.textarea input{
+	position: relative;   
+	float: left;
+    width: 500px;
+    height: 22px;
+    margin: 6px 0 0 7px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+.textarea span{
+	position: absolute;
+    right: 0;
+    height: 32px;
+    width: 30px;
+    background: url(../img/tube1.png) 0 0 no-repeat;
+    background-size: 25px 25px;
+    background-position: 0 50%;  
+    background: url(../img/tube1-2.png) 0 0 no-repeat\9;	
+}
+.textarea span:hover{
+    background: url(../img/tube2.png)0 0 no-repeat;
+    background-size: 25px 25px;
+    background-position: 0 50%; 
+    background: url(../img/tube1-2.png) 0 0 no-repeat\9;
+}
+.button{
+    float: left;
+    width: 100px;
+    border: 0px;
+    height: 36px;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 1px;
+    background: #3385ff;
+    padding: 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+.button:hover{
+    background-color: #295ff3;
+}
+
+/*以下代码为foot部分 二维码、copyright*/
+.footer{
+    position: absolute;
+	height: 60px;    
+	margin:0 auto;
+	bottom: 80px;
+	width: 660px;
+	float: left;
+	left: 50%;
+	margin-left:-330px;	
+}
+.footer-1{
+	width: 60px;
+	height: 60px;
+	float: left;
+	background: url(../img/f1.png);
+}
+.footer-text{
+	float:left;
+    margin: 8px 33px 0 10px;
+    line-height: 23px;
+    font-size: 12px;
+}
+.footer-text span{
+	letter-spacing: 1px;
+    color: #999;
+}
+.footer-2{
+	width: 60px;
+	height: 60px;
+	float: left;
+	background: url(../img/f2.png);
+}
+.footer-3{
+	margin-top:8px;
+	font-size: 12px;
+	font-style: arial;
+	line-height: 23px;	
+}
+.footer-3-up{
+	margin-right: 20px;
+	color:black;
+}
+#footer-3-down{
+	color: #999;
+}
+.footericon{
+    width: 14px;
+    height: 17px;
+    display: inline-block;
+    overflow: hidden;
+    background: url(../img/icon.png) no-repeat;
+    background-position: -600px -96px;
+    position: relative;
+    top: 3px;
+}
+.m-wrapper iframe{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+@media screen and (min-width:800px){
+    .m-wrapper{
+    display: none;
+    }
+}
+@media screen and (max-width: 800px){
+    .wrapper{
+        display: none;
+    }
+}
+

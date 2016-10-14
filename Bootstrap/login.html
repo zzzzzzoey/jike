@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script src="js/jquery-2.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- nav导航条 -->
+    <nav class="navbar navbar-default">
+        <!-- 100% 宽度 container-fluid-->
+        <div class="container-fluid">
+            <!-- 手机端展示的导航 -->
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <!-- dropdown，需要bootstrap.js和jquery.js -->
+                <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Bootstrap Admin Template</a>
+            </div>
+            <!-- 导航里的链接，选项 -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="">
+                        <a href="signup.html" class="">
+                            Don't have an account?
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="index.html" class="">
+                            <i class="icon-chevron-left"></i> Back to Homepage
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- login表单 -->
+    <div class="account-container">
+        <div class="content clearfix">
+            <!-- username and password input -->
+            <form action="#" method="post">
+                <h1>Member Login</h1>
+                <div class="login-fields">
+                    <p>Please provide your details</p>
+                    <div class="field">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" value="" placeholder="Username" class="login username-field" required="required" />
+                    </div>
+                    <!-- /field -->
+                    <div class="field">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" value="" placeholder="Password" class="login password-field" required="required" />
+                    </div>
+                    <!-- /password -->
+                </div>
+                <!-- /login-fields -->
+                <div class="login-actions">
+                    <span class="login-checkbox">
+                    <input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
+                    <label class="choice" for="Field">Keep me signed in</label>
+                </span>
+                    <button class="button btn btn-success btn-large">Sign In</button>
+                </div>
+                <!-- .actions -->
+            </form>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- reset password -->
+    <div class="login-extra">
+        <a href="#">Reset Password</a>
+    </div>
+</body>
+
+</html>

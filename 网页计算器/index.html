@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>简易科学计算器</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <table id="calculator" border="1" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <th id="screen" height="50" colspan="7" align="right" valign="bottom">0</th>
+            </tr>
+            <tr>
+                <td width="70" align="center" valign="middle">!</td>
+                <td width="70" align="center" valign="middle">sin</td>
+                <td width="70" align="center" valign="middle">7</td>
+                <td width="70" align="center" valign="middle">8</td>
+                <td width="70" align="center" valign="middle">9</td>
+                <td width="70" align="center" valign="middle">←</td>
+                <td width="70" align="center" valign="middle">C</td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle">x^y</td>
+                <td align="center" valign="middle">cos</td>
+                <td align="center" valign="middle">4</td>
+                <td align="center" valign="middle">5</td>
+                <td align="center" valign="middle">6</td>
+                <td align="center" valign="middle">X</td>
+                <td align="center" valign="middle">÷</td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle">ln</td>
+                <td align="center" valign="middle">tan</td>
+                <td align="center" valign="middle">1</td>
+                <td align="center" valign="middle">2</td>
+                <td align="center" valign="middle">3</td>
+                <td align="center" valign="middle">+</td>
+                <td align="center" valign="middle">-</td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle"><sup>y</sup>√x</td>
+                <td align="center" valign="middle">abs</td>
+                <td colspan="2" align="center" valign="middle">0</td>
+                <td align="center" valign="middle">.</td>
+                <td align="center" valign="middle">mod</td>
+                <td align="center" valign="middle">=</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <p>说明</p>
+    <ul>
+        <li>不知都还有没有一些不知名的错误</li>
+        <li>关于单操作数：先按数字再按符号即可出结果，例如按下41cos就得出0.75470958</li>
+        <li>这是避免js里的溢出造成结果错误，设置了上下限（自己随便设的），如果结果过大或过小，会溢出造成error，例如按下10^12.1会error</li>
+        <li>还有一些非法操作会造成error的，例如3/0,-6ln,1.2!等</li>
+        <li>一些连按（只测试了四则运算）如2+3++=会输出11，2+3+==会输出10，3!!输出720等</li>
+        <li>误差用tofixed,结果可能还会有错</li>
+        <li>出现error后，除了按clear重置外，其余按键无效</li>
+    </ul>
+    <script type="text/javascript" src="js/cal.js"></script>
+</body>
+
+</html>

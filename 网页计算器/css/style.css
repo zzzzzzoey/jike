@@ -1,0 +1,32 @@
+body{
+	font-size: 20px;
+}
+
+
+
+table{
+	margin: 100px auto;
+}
+
+table th{
+	font-size: 2rem;
+	background-color: #BCBBC4;
+	color: #EB0F44;
+	font-weight: normal;
+}
+
+table sup{
+	font-size: 0.3rem;
+}
+table td{
+	border-width: 1px;
+}
+
+table td:hover{
+	background-color: #28D95E;
+	cursor: pointer;
+}
+table td:active{
+	background-color: #205DDD;
+	color: #D13232;
+}

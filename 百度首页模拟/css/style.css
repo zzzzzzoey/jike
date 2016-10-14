@@ -1,0 +1,1403 @@
+/*页面初始化*/
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font: 12px arial;
+    /*******************************************
+    ie6hover，文件网上找的
+    ********************************************/
+    behavior: url(css/csshover.htc);
+    /****************************************
+    ie css3样式，也是网上找的
+    *****************************************/
+    /*behavior: url(css/ie-css3.htc); */
+    /*这个貌似无效？？？*/
+}
+
+p {
+    font-size: 12px;
+}
+
+a {
+    color: #111;
+}
+
+li {
+    list-style-type: none;
+}
+
+#container {
+    width: 100%;
+    min-width: 990px;
+    background-color: #fff;
+    position: relative;
+    min-height: 600px;
+}
+
+
+/*手机界面内容清除*/
+
+.phone-top,
+.phone-nav,
+.phone-footer {
+    display: none;
+}
+
+
+/*登陆界面和登出界面，2者样式相似就写在一起了*/
+
+.login-box,
+.logout-box {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 60000;
+}
+
+.login-box .login-background,
+.logout-box .logout-background {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    opacity: 0.15;
+    background-color: rgb(0, 0, 0);
+}
+
+.login-box .login {
+    width: 393px;
+    height: 448px;
+    position: absolute;
+    background-color: #ffffff;
+}
+
+.logout-box .logout {
+    width: 493px;
+    height: 129px;
+    position: absolute;
+    background-color: #ffffff;
+}
+
+.login-box .login-title {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-width: 1px 1px 0 1px;
+    border-bottom: 0;
+    cursor: move;
+}
+
+.logout-box .logout-title {
+    height: 39px;
+    line-height: 39px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #222;
+    text-indent: 9px;
+    border-bottom: 1px solid #e9e9e9;
+    padding-left: 11px;
+    position: relative;
+}
+
+.logout-box .logout-title i {
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    outline: none;
+    background: url('https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superui/img/dialog_a9eba73d.png') no-repeat -27px -202px;
+}
+
+.logout-box .logout-title i:hover {
+    background-position: -28px -232px;
+}
+
+.login-box .login-title span {
+    width: auto;
+    height: 18px;
+    font-size: 16px;
+    font-family: "宋体";
+    font-weight: bold;
+    color: #666;
+    background: url('https://ss0.bdstatic.com/5LMZfyabBhJ3otebn9fN2DJv/passApi/img/baidu_logo_24_056405eb.png') 18px 8px no-repeat;
+    text-indent: 50px;
+    padding: 15px 0 13px;
+    margin-right: 29px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    box-sizing: content-box;
+}
+
+.login-box .login-title #login-close {
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-image: url('https://ss0.bdstatic.com/5LMZfyabBhJ3otebn9fN2DJv/passApi/img/pass_login_icons_7241098f.png');
+    background-position: -56px -48px;
+    cursor: pointer;
+}
+
+.login-box .login-title #login-close:hover {
+    background-position: -72px -48px;
+}
+
+.login-box .login-body {
+    height: 310px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.logout-box .logout-body {
+    padding: 18px 15px 0 20px;
+    color: #666;
+    font-size: 13px;
+}
+
+.login-box .login-body .login-body-top {
+    height: 53px;
+    position: relative;
+}
+
+.login-box .login-body p {
+    font-size: 12px;
+    line-height: 25px;
+    height: 25px;
+}
+
+.login-box .login-body>p {
+    margin-bottom: 10px;
+    height: auto;
+    position: relative;
+}
+
+.login-box .login-body>p a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #1b66c7;
+    font-family: Arial, Helvetica, STHeiti, "宋体";
+    position: absolute;
+}
+
+.login-box .login-body>p a:hover {
+    text-decoration: underline;
+}
+
+.login-box .login-body #info-error {
+    color: #FE0505;
+}
+
+.login-box .login-body .mail-login {
+    background: url('https://ss0.bdstatic.com/5LMZfyabBhJ3otebn9fN2DJv/passApi/img/smsSwitchPhone_296e835b.png') no-repeat;
+    padding-left: 15px;
+    color: #666;
+    cursor: pointer;
+    float: right;
+    line-height: 15px;
+    height: 15px;
+    margin: 0 0 10px 0;
+}
+
+.login-box .login-body>input {
+    width: 300px;
+    padding: 6px 25px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    display: block;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.login-box .login-body #user {
+    background: url('https://ss0.bdstatic.com/5LMZfyabBhJ3otebn9fN2DJv/passApi/img/input_icons_24_915272c4.png') no-repeat;
+    background-position: 0px -66px;
+}
+
+.login-box .login-body #user:focus {
+    background-position: 0px -106px;
+}
+
+.login-box .login-body .user-cancel {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+    top: 61px;
+    right: 25px;
+    height: 16px;
+    width: 16px;
+    background: url('https://ss0.bdstatic.com/5LMZfyabBhJ3otebn9fN2DJv/passApi/img/pass_login_icons_7241098f.png') no-repeat -88px -48px;
+    cursor: pointer;
+}
+
+.login-box .login-body .user-cancel:hover {
+    background-position: -104px -48px;
+}
+
+.login-box .login-body #password {
+    background: url('https://ss0.bdstatic.com/5LMZfyabBhJ3otebn9fN2DJv/passApi/img/input_icons_24_915272c4.png') no-repeat;
+    background-position: 0 -145px;
+}
+
+.login-box .login-body #password:focus {
+    background-position: 0 -185px;
+}
+
+.login-box .login-body #auto-login {
+    vertical-align: middle;
+}
+
+.login-box .login-body #login-btn {
+    background-color: #3f89ec;
+    width: 350px;
+    display: block;
+    height: 48px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    background: #3f89ec;
+    border: none;
+}
+
+.login-box .login-body .login-problem {
+    top: -32px;
+    right: 10px;
+}
+
+.login-box .login-body .registered {
+    right: 10px;
+}
+
+.logout-box .logout-body .button-wrap {
+    position: relative;
+    margin: 0 auto;
+    height: 34px;
+    margin-top: 22px;
+    top: 0;
+}
+
+.logout-box .logout-body .button-wrap .switch-accunt {
+    position: absolute;
+    left: 0;
+    bottom: 21px;
+    color: #4ca3ff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.logout-box .logout-body .button-wrap #logout-confirm {
+    background: #389cff;
+    color: #fff;
+    height: 26px;
+    border: none;
+    width: 56px;
+    display: inline-block;
+    position: absolute;
+    right: 77px;
+    bottom: 15px;
+    line-height: 26px;
+    text-align: center;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logout-box .logout-body .button-wrap #logout-confirm:hover {
+    background: #0079F5;
+}
+
+.logout-box .logout-body .button-wrap #logout-close {
+    width: 54px;
+    height: 24px;
+    line-height: 24px;
+    right: 6px;
+    border: 1px solid #d3d2d2;
+    color: #222;
+    display: inline-block;
+    position: absolute;
+    text-align: center;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    top: -6px;
+}
+
+.logout-box .logout-body .button-wrap #logout-close:hover {
+    background: #f8fbf8;
+    border-color: #bbb;
+}
+
+.login-box .login-footer {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    padding-left: 20px;
+    /*z-index: 16;*/
+    padding-bottom: 15px;
+}
+
+
+/*顶部样式设置*/
+
+.top-left {
+    float: left;
+    width: 50%;
+    position: absolute;
+    padding: 23px 0 0 15px;
+}
+
+.top-left .weather-wrap {
+    float: left;
+}
+
+.top-left p {
+    line-height: 20px;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.top-left .s-line {
+    display: inline-block;
+    height: 12px;
+    border-left: 1px solid #D4CCCC;
+    position: relative;
+    top: 2px;
+    margin: 0 5px;
+}
+
+.top-left .top-menu {
+    float: left;
+    position: relative;
+    top: 2px;
+}
+
+.top-left .top-menu span {
+    margin: 0 10px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.top-left .weather-forecast {
+    width: 585px;
+    height: 201px;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.072);
+    top: 45px;
+    left: 0px;
+    z-index: 100;
+    display: none;
+}
+
+.top-left .weather-forecast .title {
+    height: 40px;
+    background: #f2f2f2;
+    border-bottom: #efefef 1px solid;
+    padding: 0 19px;
+}
+
+.top-left .weather-forecast .title span {
+    line-height: 40px;
+}
+
+.top-left .weather-forecast .title .area-setting {
+    float: right;
+    color: #666;
+    width: 40px;
+    cursor: pointer;
+    text-align: right;
+    line-height: 40px;
+    background: url("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/load_ext_spis_65c74648.png") no-repeat -36px -88px;
+    background-position: -36px -89px !important;
+}
+
+.top-left .weather-forecast .weather-body>div {
+    width: 20%;
+    float: left;
+    text-align: center;
+}
+
+.top-left .weather-forecast .weather-body>div p {
+    display: block;
+    line-height: 30px;
+}
+
+.top-left .weather-forecast .weather-setting {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    padding: 0 19px;
+    display: none;
+}
+
+.top-left .weather-forecast .weather-setting p {
+    line-height: 41px;
+    display: block;
+}
+
+.top-left .weather-forecast .weather-setting select {
+    width: 300px;
+}
+
+.top-left .weather-forecast .weather-setting input {
+    border: none;
+    cursor: pointer;
+    margin-right: 12px;
+    text-align: center;
+    width: 54px;
+    height: 26px;
+    margin-top: 17px;
+    line-height: 26px;
+    background: url("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/load_ext_spis_65c74648.png") no-repeat 1000px 1000px;
+}
+
+.top-left .weather-forecast .weather-setting #weather-save {
+    background-position: 0 -30px;
+    color: #fff;
+}
+
+.top-left .weather-forecast .weather-setting #weather-save:hover {
+    background-position: 0 0;
+}
+
+.top-left .weather-forecast .weather-setting #weather-cancel {
+    color: #666;
+    background-position: 0 -60px;
+}
+
+.top-left .colorpick {
+    width: 100px;
+    position: absolute;
+    left: 210px;
+    top: 45px;
+    border: 1px solid #26CE6A;
+    display: none;
+}
+
+#color {
+    width: 88px;
+    height: 20px;
+    padding: 5px;
+    margin: 0;
+    position: relative;
+}
+
+#color-submit,
+#color-cancel {
+    width: 50%;
+    height: 25px;
+    margin: 0;
+    position: relative;
+    float: left;
+    border: 1px solid #26CE6A;
+}
+
+.top-right {
+    width: 100%;
+}
+
+.top-right ul {
+    float: right;
+}
+
+.top-right .top-nav {
+    display: inline-block;
+    font-size: 14px;
+    margin: 20px 10px;
+    /*inline-block对ie6-7无效，貌似可以用inline代替*/
+    _display: inline;
+    _zoom: 1;
+    *display: inline;
+    *zoom: 1;
+}
+
+.top-right .top-nav a:hover {
+    color: #38f;
+}
+
+.top-right .more-select li>div {
+    width: 40px;
+    height: 36px;
+    margin: 5px auto;
+}
+
+.top-right .more-select .music {
+    background: url('../images/music.png?__sprite') no-repeat;
+}
+
+.top-right .more-select .image {
+    background: url('../images/image.png?__sprite') no-repeat;
+}
+
+.top-right .more-select .zhidao {
+    background: url('../images/zhidao.png?__sprite') no-repeat;
+}
+
+.top-right .more-select .wenku {
+    background: url('../images/wenku.png?__sprite') no-repeat;
+}
+
+.top-right .more-select .bang {
+    background: url('../images/bang.png?__sprite') no-repeat;
+}
+
+.top-right .more-select .tuiguang {
+    background: url('../images/tuiguang.png?__sprite') no-repeat;
+}
+
+#login {
+    text-decoration: underline;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+/*设置效果设置*/
+
+.top-right .top-nav .setting-container,
+.top-right .top-nav .user-container {
+    position: relative;
+    /*******************************************
+    不知道为什么ie6,ie7这里会高了1个font-size的高度
+    还是其余部分矮了1个font-size,这里将其“压”回去
+    *******************************************/
+    *top: 1em;
+}
+
+.top-right .top-nav .setting-container .setting-box {
+    padding: 5px;
+    position: relative;
+    display: none;
+    left: 10px;
+    top: 11px;
+}
+
+.top-right .top-nav .user-container .user-box {
+    padding: 5px;
+    position: relative;
+    display: none;
+    left: 15px;
+    top: 11px;
+}
+
+
+/*小箭嘴*/
+
+.top-right .top-nav .setting-container .arrow {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 50%;
+    margin-left: -5px;
+    z-index: 100;
+}
+
+.top-right .top-nav .user-container .arrow {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 50%;
+    margin-left: -5px;
+    z-index: 100;
+}
+
+.top-right .top-nav .setting-container .arrow em,
+.top-right .top-nav .setting-container .arrow i {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    position: absolute;
+    border: 5px solid transparent;
+    border-style: dashed dashed solid dashed;
+}
+
+.top-right .top-nav .user-container .arrow em,
+.top-right .top-nav .user-container .arrow i {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    position: absolute;
+    border: 5px solid transparent;
+    border-style: dashed dashed solid dashed;
+}
+
+.top-right .top-nav .setting-container .arrow em {
+    border-bottom-color: #d8d8d8;
+    top: -1px;
+}
+
+.top-right .top-nav .user-container .arrow em {
+    border-bottom-color: #d8d8d8;
+    top: -1px;
+}
+
+.top-right .top-nav .user-container .arrow i {
+    border-bottom-color: #fff;
+    top: 0;
+}
+
+.top-right .top-nav .setting-container .setting-content,
+.top-right .top-nav .user-container .user-content {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #d1d1d1;
+    box-shadow: 1px 1px 5px #d1d1d1;
+    text-align: center;
+    top: 10px;
+    right: -30px;
+    width: 70px;
+}
+
+
+/*hover及其一些列表样式*/
+
+.top-right .top-nav .setting-container:hover .arrow,
+.top-right .top-nav .user-container:hover .arrow {
+    display: block;
+    position: absolute;
+}
+
+.top-right .top-nav .setting-container:hover .setting-box,
+.top-right .top-nav .user-container:hover .user-box {
+    display: block;
+    position: absolute;
+}
+
+.top-right .top-nav .setting-container:hover .setting-content ul,
+.top-right .top-nav .user-container:hover .user-content ul {
+    width: 70px;
+}
+
+.top-right .top-nav .setting-container .setting-content li,
+.top-right .top-nav .user-container .user-content li {
+    padding: 10px;
+    color: #000;
+}
+
+.top-right .top-nav .setting-container .setting-content li:hover,
+.top-right .top-nav .user-container .user-content li:hover {
+    background-color: #38f;
+}
+
+.top-right .top-nav .setting-container .setting-content a,
+.top-right .top-nav .user-container .user-content a {
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.top-right .top-nav .setting-container .setting-content li:hover a,
+.top-right .top-nav .user-container .user-content li:hover a {
+    color: #fff;
+}
+
+
+/*“更多产品”效果设置*/
+
+.top-right .top-nav.more .more-container {
+    background-color: #38f;
+    padding: 5px;
+}
+
+.top-right .top-nav.more a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.top-right .more-select {
+    display: none;
+    background-color: #f9f9f9;
+    width: 85px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    z-index: 100;
+    /*ie6高度100%貌似无效，求解*/
+    height: 100%;
+    text-align: center;
+    border-left: 1px solid #e7e7e7;
+    /*ie7这里会背景全屏，设置宽度强行恢复原样*/
+    *width: 82px;
+}
+
+.top-right .more-select ul {
+    margin-top: 15px;
+}
+
+.top-right .more-select li {
+    padding: 10px 5px;
+    text-align: center;
+}
+
+.top-right .more-select li a {
+    text-decoration: none;
+}
+
+.top-right .more-select li.unchangable {
+    cursor: default;
+}
+
+.top-right .more-select ul li.all a {
+    text-decoration: underline;
+}
+
+.top-right .more-select li a:hover {
+    text-decoration: underline;
+}
+
+
+/*搜索栏效果设置*/
+
+.search-box {
+    position: relative;
+    width: 100%;
+    height: 138px;
+    top: 25%;
+}
+
+.search-box .img {
+    width: 272px;
+    margin: 0 auto;
+}
+
+.search-box .img img {
+    margin-top: -74px;
+    _margin-top: -45px;
+}
+
+.search-box .form {
+    width: 644px;
+    margin: 20px auto 0;
+}
+
+.input-search {
+    width: 540px;
+    height: 36px;
+    font-size: 18px;
+    position: relative;
+    float: left;
+    border: 1px solid #ccc;
+    outline: none;
+    /*ie6-ie8输入框垂直居中*/
+    line-height: 36px\9;
+    padding-left: 6px;
+}
+
+.input-search:hover {
+    border: 1px solid #999;
+    box-shadow: 0px 0px 1px #999 inset;
+}
+
+
+/*ie6，7无效*/
+
+.input-search:focus {
+    border: 1px solid #38c;
+    box-shadow: 0px 0px 0px #fff inset;
+}
+
+.submit-input {
+    width: 100px;
+    height: 38px;
+    float: left;
+    background-color: #38f;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    margin-left: -6px;
+}
+
+.submit-input:hover {
+    background-color: #16b;
+    cursor: pointer;
+}
+
+
+/*channel设置*/
+
+.channel-wrap {
+    width: 895px;
+    height: 470px;
+    position: relative;
+    margin: 0 auto;
+    top: 30%;
+    display: none;
+    background: #fff;
+}
+
+.channel-wrap .channel-title {
+    position: relative;
+    z-index: 11111;
+    width: 893px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 14px;
+    border-top: 1px solid #e9e9e9;
+    border-right: 1px solid #e9e9e9;
+    border-left: 1px solid #e9e9e9;
+    height: 39px;
+    line-height: 39px;
+    display: inline-block;
+}
+
+.channel-wrap .channel-title .my-watchlist {
+    display: inline-block;
+    width: 124px;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+}
+
+.channel-wrap .channel-title .focus {
+    background-color: #9a9da2 !important;
+    color: #fff !important;
+}
+
+.channel-wrap .channel-title .titles {
+    display: inline-block;
+    float: left;
+}
+
+.channel-wrap .channel-title .titles span {
+    color: #333;
+    width: 80px;
+    height: 39px;
+    display: inline-block;
+    zoom: 1;
+    vertical-align: top;
+    text-align: center;
+    cursor: pointer;
+}
+
+.channel-wrap .channel-title .titles span:hover {
+    color: #333 !important;
+    background-color: transparent !important;
+    background-image: linear-gradient(rgba(240, 240, 240, .25) 0, rgba(240, 240, 240, .25) 100%) !important;
+}
+
+.channel-wrap .channel-set {
+    display: inline-block;
+    height: 39px;
+    float: right;
+    width: 18px;
+    padding: 0 21px 0 11px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 20000;
+}
+
+.channel-wrap .channel-set i {
+    display: block;
+    background: url('https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/mancard/img/card_setts_fdb17359.png') no-repeat -121px -49px;
+    width: 100%;
+    height: 18px;
+    margin-top: 11px;
+    overflow: hidden;
+}
+
+.channel-wrap .channel-title .channel-set:hover i {
+    background-position: -121px -73px;
+}
+
+.channel-wrap .slide-menu-box {
+    width: 893px;
+    height: 186px;
+    top: 36px;
+    left: 0px;
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    z-index: 100;
+    /*color: #666;
+    font-size: 13px;*/
+}
+
+.channel-wrap .slide-menu-box .slide-menu {
+    position: relative;
+    text-align: left;
+    margin: 22px 25px 0 25px;
+    width: 843px;
+    height: 121px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-left {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-left h3 {
+    font-weight: normal;
+    font-size: 12px;
+    color: #666;
+    text-indent: 2px;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-left .my-watchlist {
+    float: left;
+    width: 78px;
+    text-align: center;
+    margin-top: 18px;
+    border: 1px solid #cdcdcd;
+    height: 24px;
+    line-height: 24px;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-left .my-list {
+    position: relative;
+    margin-top: 8px;
+    height: 96px;
+    margin-left: 85px;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-left .mode-item-left {
+    font-size: 12px;
+    position: relative;
+    display: inline-block;
+    margin: 10px 8px 10px 8px;
+    cursor: pointer;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-left .mode-item-left .mode-icon {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 15px;
+    height: 15px;
+    overflow: hidden;
+    background: url("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/mancard/img/mod/card_setting_c0307230.png") no-repeat -40px -25px;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-left .mode-item-left .mode-title {
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    width: 53px;
+    font-size: 12px;
+    color: #222;
+    background: #fff;
+    border: 1px dashed #cdcdcd;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-right {
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-right h3 {
+    font-weight: normal;
+    font-size: 12px;
+    color: #666;
+    text-indent: 7px;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-right .unsubscribed {
+    position: relative;
+    margin-top: 8px;
+    height: 96px;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-right .mode-item-right {
+    font-size: 12px;
+    position: relative;
+    display: inline-block;
+    margin: 10px 8px 10px 8px;
+    cursor: pointer;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-right .mode-item-right .mode-icon {
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    overflow: hidden;
+    background: url("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/mancard/img/mod/card_setting_c0307230.png") no-repeat -60px -28px;
+}
+
+.channel-wrap .slide-menu-box .slide-menu .slide-right .mode-item-right .mode-title {
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    width: 53px;
+    font-size: 12px;
+    color: #222;
+    background: #fff;
+    padding-left: 7px;
+    border: 1px solid #ccc;
+}
+
+.channel-wrap .slide-menu-box .channel-hide {
+    height: 40px;
+    margin: 0 25px;
+}
+
+.channel-wrap .slide-menu-box .channel-hide span {
+    float: right;
+    margin-left: 10px;
+    margin-right: 21px;
+    line-height: 15px;
+    font-size: 13px;
+    color: #222;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.channel-wrap .channel-body {
+    width: 893px;
+    height: 363px;
+    border: 1px solid #e9e9e9;
+    position: relative;
+    top: -4px;
+}
+
+.channel-wrap .channel-body .channel-focus {
+    display: block;
+}
+
+.channel-wrap .channel-body>div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+    padding: 25px;
+    font-size: 50px;
+}
+
+
+/*底部效果设置*/
+
+.footer-box {
+    font-size: 10px;
+    position: relative;
+    top: 75%;
+    width: 100%;
+    height: 63px;
+}
+
+.footer-box .footer {
+    /*position: relative;*/
+    width: 660px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer .footer1 {
+    position: relative;
+    float: left;
+}
+
+.footer .footertext1 {
+    color: #000;
+}
+
+.footer .footertext2 {
+    color: #999;
+}
+
+.footer1 img {
+    float: left;
+    position: relative;
+}
+
+.footer1 .footer1text {
+    float: left;
+    position: relative;
+    left: 10px;
+    line-height: 23px;
+    margin: 8px 0 0 10px;
+}
+
+.footer .footer2 {
+    position: relative;
+    float: left;
+    left: 50px;
+}
+
+.footer2 img {
+    float: left;
+    position: relative;
+}
+
+.footer2 .footer2text {
+    float: left;
+    position: relative;
+    left: 10px;
+    line-height: 23px;
+    margin: 8px 0 0 10px;
+}
+
+.footer .footer3 {
+    position: relative;
+    float: left;
+    left: 70px;
+    text-align: left;
+    margin: 8px 0 0 33px;
+    line-height: 23px;
+}
+
+
+/*手机平板的样式*/
+
+@media (max-width: 0px) {
+    /*电脑界面清除*/
+    .top-right,
+    .footer-box {
+        display: none;
+    }
+    /*手机顶部信息*/
+    .phone-top {
+        display: block;
+        position: relative;
+        height: 50px;
+    }
+    /*天气部分*/
+    .phone-top .weather {
+        position: relative;
+        float: left;
+        left: 10px;
+        top: 10px;
+    }
+    .phone-top .weather i {
+        display: inline-block;
+        color: #b7babe;
+        font-size: 28px;
+    }
+    .phone-top .weather>div {
+        display: inline-block;
+    }
+    .phone-top .weather>div.weather-num {
+        font-size: 20px;
+        color: #8c8c8c;
+        padding-left: 2px;
+    }
+    .phone-top .weather>div.weather-status p {
+        height: 13px;
+        line-height: 13px;
+        font-size: 11px;
+        color: #999;
+    }
+    /*画个小人儿*/
+    .phone-top .user {
+        float: right;
+        position: relative;
+        right: 10px;
+        top: 10px;
+    }
+    .phone-top .user .user-icon {
+        height: 28px;
+        position: relative;
+        overflow: hidden;
+        -webkit-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        -o-transform: scale(0.7);
+        transform: scale(0.7);
+    }
+    .phone-top .user .user-icon .circle {
+        width: 10px;
+        height: 10px;
+        border: 2px solid #666;
+        border-radius: 50%;
+        -webkit-transform: translate(8px, 0px);
+        -ms-transform: translate(8px, 0px);
+        -o-transform: translate(8px, 0px);
+        transform: translate(8px, 0px);
+    }
+    .phone-top .user .user-icon .half-circle {
+        width: 30px;
+        height: 30px;
+        border-top: 2px solid #666;
+        border-left: 2px solid #666;
+        border-radius: 50%;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    /*搜索栏*/
+    .search-box {
+        top: 50px;
+    }
+    .search-box .img {
+        width: 175px;
+        margin: 0 auto;
+    }
+    .search-box .img img {
+        width: 175px;
+        margin-top: 0;
+    }
+    .search-box .form-box {
+        width: 95%;
+        margin: 0 auto;
+    }
+    .search-box .form {
+        display: -moz-box;
+        display: -webkit-box;
+        display: box;
+        width: 100%;
+    }
+    .input-search {
+        height: 36px;
+        font-size: 18px;
+        position: relative;
+        float: left;
+        border: 1px solid #ccc;
+        outline: none;
+        -moz-box-flex: 1;
+        -webkit-box-flex: 1;
+        box-flex: 1;
+        /*ie6-ie8输入框垂直居中*/
+        line-height: 36px\9;
+    }
+    .submit-input {
+        width: 100px;
+        height: 38px;
+        position: relative;
+        right: 0;
+        background: #38f;
+        color: #fff;
+        white-space: nowrap;
+        line-height: 42px;
+        font-size: 16px;
+    }
+    /*手机版导航*/
+    .phone-nav {
+        display: block;
+        position: relative;
+        top: 50px;
+    }
+    .phone-nav ul {
+        width: 95%;
+        margin: 0 auto;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-box;
+        display: -o-box;
+        display: box;
+    }
+    .phone-nav ul>li {
+        display: block;
+        height: 40px;
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        -ms-box-flex: 1;
+        box-flex: 1;
+        text-align: center;
+    }
+    .phone-nav ul>li>a {
+        text-decoration: none;
+        color: #666;
+        line-height: 40px;
+    }
+    /*手机底部*/
+    .phone-footer {
+        width: 100%;
+        display: block;
+        position: absolute;
+        bottom: 0px;
+    }
+    .phone-footer .copy {
+        width: 100%;
+        position: relative;
+        text-align: center;
+    }
+    .phone-footer .copy a {
+        display: block;
+        text-decoration: none;
+    }
+    .phone-footer .copy a.line1 {
+        position: relative;
+        display: inline-block;
+        height: 34px;
+        width: 95px;
+        line-height: 34px;
+        color: #666;
+        font-size: 13px;
+    }
+    .phone-footer .copy a.line2 {
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+        padding: 6px 0 0;
+        color: #999;
+    }
+    .phone-footer .copy a.line3 {
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+        padding: 6px 0 20px;
+        color: #999;
+    }
+    .phone-footer .mycard {
+        padding: 0 8px;
+        line-height: 45px;
+        height: 45px;
+        color: #333;
+        font-size: 14px;
+        background: #eee;
+        text-align: center;
+    }
+}
+
+
+/*回到顶部*/
+
+.to-top {
+    position: fixed;
+    width: 51px;
+    border: 0;
+    height: 46px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0.3) 100%);
+    ;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+}
+
+.to-top .text {
+    left: 5px;
+    line-height: 17px;
+    color: #fff;
+    font-size: 13px;
+    top: 4px;
+    width: 30px;
+    position: absolute;
+}
